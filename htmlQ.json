@@ -1,0 +1,47 @@
+ [
+    {
+        "title":"why we use <br> element ?",
+        "answer_1":"to make text bold",
+        "answer_2":"to make text alone",
+        "answer_3":"to make text horezental line",
+        "answer_4":"to add breakline",
+    
+        "right_answer":"to add breakline"
+    },
+    {
+        "title":"why we use <hr> element ?",
+        "answer_1":"to make text bold",
+        "answer_2":"to make text alone",
+        "answer_3":"to add horezental line",
+        "answer_4":"to add breakline",
+       
+        "right_answer":"in JavaScript"
+    },
+    {
+        "title":"where we use Dom And Bom element ?",
+        "answer_1":"in HTML5",
+        "answer_2":"in CSS3",
+        "answer_3":"in Bootstrap",
+        "answer_4":"in JavaScript",
+       
+        "right_answer":"in JavaScript"
+    },
+    {
+        "title":"any array in world is started from index ?",
+        "answer_1":"1",
+        "answer_2":"true",
+        "answer_3":"0",
+        "answer_4":"zero",
+     
+        "right_answer":"0"
+    },
+    {
+        "title":"what is the mean Dom ?",
+        "answer_1":"document object matrex",
+        "answer_2":"document object model",
+        "answer_3":"to make text bold",
+        "answer_4":"to add breakline",
+       
+"right_answer":"document object model"
+    }
+]
