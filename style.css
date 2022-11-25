@@ -25,7 +25,6 @@ body{
 .quiz-app .quiz-info{
   display: flex;
   position: relative;
-  
   margin: 10px auto;
   justify-content: space-around;
   background-color: #f8f8f8;
@@ -39,11 +38,12 @@ body{
 }
 
 .quiz-app .quiz-info .category{
-flex: 1;
+flex: 1;margin-right: 100px;
+
 }
 .quiz-app .quiz-info .count{
-    flex:1 ;
-    text-align: right;}
+    text-align: right;
+}
 .quiz-app .quiz-area{
     background-color: #f8f8f8;
     margin: 10px auto;
@@ -55,7 +55,7 @@ flex: 1;
 }
 #quiz-area {
     height: 50px;
- 
+
 }
 .quiz-area h2{
     margin-left: 60px;
