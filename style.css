@@ -14,7 +14,7 @@ body{
 .quiz-app{
     display: flex;
     margin: 20px auto;
-    width:80%;
+    width:100%;
     color: antiquewhite;
     padding: 15px;
     background-color: #e3e7eb;
@@ -83,7 +83,7 @@ margin-left: 8px;
 
 .quiz-app .btn{
    
-    padding: 6px;
+   padding: 6px;
    font-weight: bold;
    color:#eaedee ;
    font-size: 18px;
@@ -98,6 +98,7 @@ margin-left: 8px;
 }
 .quiz-app .btn:hover{
     color: #0075ff;
+    background-color: #e3e7eb;
 }
 
 .quiz-app .bullets{
@@ -121,6 +122,7 @@ font-weight: bold;
     align-items: center;
     justify-content: center;
     display: flex;
+    color:  #e3e7eb;
     
 }
 .spans span.on{
