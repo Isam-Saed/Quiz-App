@@ -83,6 +83,8 @@ function createBullets(num){
         if(i === 0){
             theBullet.className= "on";
         }
+        let numberQSpan =document.createTextNode(`${i}`)
+        theBullet.appendChild(numberQSpan)
         bulletSpanContainer.appendChild(theBullet)
     }
 }
@@ -118,6 +120,12 @@ if(i===1){
                                   }
 
 function checkAnswer(rAnswer,count2){
-    console.log(rAnswer)
-    console.log(count2,`Question`)
+   let answers = document.getElementsByName('question')
+   let theChoosenAnswer ;
+   for(var i=0;i<answers.length;i++){
+     if(answers[i].checked){theChoosenAnswer=answers[i].dataset.answer}
+   }
+   console.log(rAnswer)
+   console.log(theChoosenAnswer)
+   
 }
