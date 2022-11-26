@@ -48,20 +48,33 @@ theChecker()*/
 
 let countSpan = document.querySelector(".count span");
 let bulletSpanContainer = document.querySelector('.bullets .spans')
+let quizArea = document.querySelector('.quiz-area');
+let answerArea= document.querySelector('.answer-area')
+let submitButton = document.querySelector('.btn');
+let currentIndex =0;
+
+
 function getQuestions(){
     let myRequest = new XMLHttpRequest();
     myRequest.onreadystatechange= function(){
         if(this.readyState === 4 && this.status === 200){
           let questionObject = JSON.parse(this.responseText)
-          let questionCount = questionObject.length;
-          createBullets(questionCount)
+          let QCount = questionObject.length;
+          createBullets(QCount)
+          addQuestionsData(questionObject[currentIndex],QCount)
+          submitButton.onclick=()=>{
+            let theRightAnswer = questionObject[currentIndex].right_answer;
+            currentIndex++;
+            checkAnswer(theRightAnswer,QCount);
+          }
         }
     }
     myRequest.open("GET","htmlQ.json",true)
     myRequest.send();
-}
-
+                       }
 getQuestions();
+
+
 function createBullets(num){
     countSpan.innerHTML=num;
 
@@ -74,3 +87,37 @@ function createBullets(num){
     }
 }
 
+
+
+function addQuestionsData(obj,countQ){
+let questionTitle = document.createElement('h2')
+let questionTExt = document.createTextNode(obj["title"]);
+questionTitle.appendChild(questionTExt)
+quizArea.appendChild(questionTitle)
+
+for(var i =1; i<=4; i++){
+    let mainDiv = document.createElement("div");
+    mainDiv.className="answer";
+    let radioInput  = document.createElement('input');
+    radioInput.name = "question";
+    radioInput.type = "radio";
+    radioInput.id   = `answer_${i}`;
+    radioInput.dataset.answer = obj[`answer_${i}`];
+if(i===1){
+    radioInput.checked=true;
+}
+
+    let TheLabel = document.createElement('label')
+    TheLabel.htmlFor=`answer_${i}`;
+    let TheLableText = document.createTextNode(obj[`answer_${i}`])
+    TheLabel.appendChild(TheLableText)
+    mainDiv.appendChild(radioInput);
+    mainDiv.appendChild(TheLabel);
+    answerArea.appendChild(mainDiv)
+}
+                                  }
+
+function checkAnswer(rAnswer,count2){
+    console.log(rAnswer)
+    console.log(count2,`Question`)
+}

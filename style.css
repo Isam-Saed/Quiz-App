@@ -78,6 +78,7 @@ font-weight: bold;
 }
 .quiz-app .answer-area .answer label{
 cursor: pointer;
+margin-left: 8px;
 }
 
 .quiz-app .btn{
@@ -94,6 +95,9 @@ cursor: pointer;
 }
 .quiz-app .submit-button:focus{
     outline: none;
+}
+.quiz-app .btn:hover{
+    color: #0075ff;
 }
 
 .quiz-app .bullets{
