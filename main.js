@@ -51,8 +51,9 @@ let bulletSpanContainer = document.querySelector('.bullets .spans')
 let quizArea = document.querySelector('.quiz-area');
 let answerArea= document.querySelector('.answer-area')
 let submitButton = document.querySelector('.btn');
+//set Data
 let currentIndex =0;
-
+let rightAnswer   =0;
 
 function getQuestions(){
     let myRequest = new XMLHttpRequest();
@@ -66,6 +67,13 @@ function getQuestions(){
             let theRightAnswer = questionObject[currentIndex].right_answer;
             currentIndex++;
             checkAnswer(theRightAnswer,QCount);
+
+            quizArea.innerHTML   ='';
+            answerArea.innerHTML ='';
+            addQuestionsData(questionObject[currentIndex],QCount);
+            if(questionObject[currentIndex] === QCount){
+                console.log(rightAnswer)
+            }
           }
         }
     }
@@ -73,6 +81,7 @@ function getQuestions(){
     myRequest.send();
                        }
 getQuestions();
+
 
 
 function createBullets(num){
@@ -119,13 +128,17 @@ if(i===1){
 }
                                   }
 
+
+
 function checkAnswer(rAnswer,count2){
    let answers = document.getElementsByName('question')
    let theChoosenAnswer ;
    for(var i=0;i<answers.length;i++){
      if(answers[i].checked){theChoosenAnswer=answers[i].dataset.answer}
+     
    }
-   console.log(rAnswer)
-   console.log(theChoosenAnswer)
-   
+   if(theChoosenAnswer === rAnswer){
+    rightAnswer++;
+    console.log(`Good Answer isam the right Answer is ${rAnswer}`)
+                                   }
 }
