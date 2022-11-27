@@ -71,9 +71,8 @@ function getQuestions(){
             quizArea.innerHTML   ='';
             answerArea.innerHTML ='';
             addQuestionsData(questionObject[currentIndex],QCount);
-            if(questionObject[currentIndex] === QCount){
-                console.log(rightAnswer)
-            }
+            
+            handelBullet();
           }
         }
     }
@@ -141,4 +140,14 @@ function checkAnswer(rAnswer,count2){
     rightAnswer++;
     console.log(`Good Answer isam the right Answer is ${rAnswer}`)
                                    }
+}
+
+function handelBullet(){
+    let bullitSpans3= document.querySelectorAll('.bullets .spans span');
+    let ArrayOfSpans = Array.from(bullitSpans3);
+    ArrayOfSpans.forEach((span,index) =>{
+        if(currentIndex === index){
+            span.className='on'
+        }
+    })
 }
