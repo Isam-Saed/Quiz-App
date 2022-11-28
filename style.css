@@ -138,11 +138,14 @@ font-weight: bold;
 }
 .result span.bad{
     color:#d10a0a ;
+    font-size: 20px;
 }
 .result span.good{
     color:#1a6d81 ;
+    font-size: 20px;
 }
 .result span.perfect{
     color:#13a532 ;
+    font-size: 20px;
 }
 

@@ -50,7 +50,10 @@ let countSpan = document.querySelector(".count span");
 let bulletSpanContainer = document.querySelector('.bullets .spans')
 let quizArea = document.querySelector('.quiz-area');
 let answerArea= document.querySelector('.answer-area')
+let bullets = document.querySelector('.bullets');
 let submitButton = document.querySelector('.btn');
+let result = document.querySelector('.result');
+let Student = prompt(`Welcome .. Please Enter Your Name.`);
 //set Data
 let currentIndex =0;
 let rightAnswer   =0;
@@ -64,6 +67,7 @@ function getQuestions(){
           createBullets(QCount)
           addQuestionsData(questionObject[currentIndex],QCount)
           submitButton.onclick=()=>{
+            if(currentIndex < QCount){ 
             let theRightAnswer = questionObject[currentIndex].right_answer;
             currentIndex++;
             checkAnswer(theRightAnswer,QCount);
@@ -72,8 +76,14 @@ function getQuestions(){
             answerArea.innerHTML ='';
             addQuestionsData(questionObject[currentIndex],QCount);
             
-            handelBullet();
-          }
+            handelBullet();}
+            else{
+                console.log(`finish Quiz`)
+            }
+            showResult(QCount);
+                                   }
+             
+                              
         }
     }
     myRequest.open("GET","htmlQ.json",true)
@@ -91,7 +101,7 @@ function createBullets(num){
         if(i === 0){
             theBullet.className= "on";
         }
-        let numberQSpan =document.createTextNode(`${i}`)
+        let numberQSpan =document.createTextNode(`${i+1}`)
         theBullet.appendChild(numberQSpan)
         bulletSpanContainer.appendChild(theBullet)
     }
@@ -100,6 +110,7 @@ function createBullets(num){
 
 
 function addQuestionsData(obj,countQ){
+    if(currentIndex < countQ){ 
 let questionTitle = document.createElement('h2')
 let questionTExt = document.createTextNode(obj["title"]);
 questionTitle.appendChild(questionTExt)
@@ -113,9 +124,7 @@ for(var i =1; i<=4; i++){
     radioInput.type = "radio";
     radioInput.id   = `answer_${i}`;
     radioInput.dataset.answer = obj[`answer_${i}`];
-if(i===1){
-    radioInput.checked=true;
-}
+if(i===1){ radioInput.checked=true;}
 
     let TheLabel = document.createElement('label')
     TheLabel.htmlFor=`answer_${i}`;
@@ -125,7 +134,7 @@ if(i===1){
     mainDiv.appendChild(TheLabel);
     answerArea.appendChild(mainDiv)
 }
-                                  }
+                                  }}
 
 
 
@@ -147,7 +156,27 @@ function handelBullet(){
     let ArrayOfSpans = Array.from(bullitSpans3);
     ArrayOfSpans.forEach((span,index) =>{
         if(currentIndex === index){
-            span.className='on'
-        }
+            span.className='on';}
     })
+}
+
+function showResult(count3){
+    let theResults;
+    if(currentIndex === count3){
+        quizArea.remove();
+        answerArea.remove();
+        bullets.remove();
+        submitButton.remove();
+        if(rightAnswer > count3/2 && rightAnswer  < count3){
+            theResults =`<span class="good">Good</span>, ${rightAnswer} from ${count3} IS Good ${Student} `
+        }
+        else if(rightAnswer === count3){
+            theResults =`<span class="perfect">Perfect</span>, All Answer IS Good ${Student} `
+        }
+        else{
+            theResults =   `<span class="bad">Bad</span>, ${rightAnswer} from ${count3} IS bad User Please agin `
+        }
+        result.innerHTML=theResults;
+}
+
 }
