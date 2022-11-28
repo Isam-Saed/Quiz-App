@@ -169,13 +169,13 @@ function showResult(count3){
         bullets.remove();
         submitButton.remove();
         if(rightAnswer > count3/2 && rightAnswer  < count3){
-            theResults =`<span class="good  wow fadeInLeft ">Good</span>,You solve ${rightAnswer} from ${count3} Q  Good ${Student} `
+            theResults =`<div class="wow fadeOutRight"><span class="good  wow fadeInLeft ">Good</span>,You solve ${rightAnswer} from ${count3} Q  Good ${Student} </div>`
         }
         else if(rightAnswer === count3){
-            theResults =`<span class="perfect  wow fadeInLeft ">Perfect</span>, All Answer IS Good ${Student} `
+            theResults =`<div class="wow fadeOutRight"><span class="perfect  wow fadeInLeft ">Perfect</span>, All Answer IS Good ${Student}</div> `
         }
         else{
-            theResults =   `<span class="bad  wow fadeInLeft">Bad</span>,You solve ${rightAnswer} from ${count3} Q bad ${Student} Please agin `
+            theResults =   `<div class="wow fadeOutRight"><span class="bad  wow fadeInLeft">Bad</span>,You solve ${rightAnswer} from ${count3} Q bad ${Student} Please agin</div> `
         }
         result.innerHTML=theResults;
 }
