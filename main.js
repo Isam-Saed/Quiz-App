@@ -53,7 +53,7 @@ let answerArea= document.querySelector('.answer-area')
 let bullets = document.querySelector('.bullets');
 let submitButton = document.querySelector('.btn');
 let result = document.querySelector('.result');
-let Student = prompt(`Welcome .. Please Enter Your Name.`);
+let Student = prompt(`Welcome in Quiz App .. Please Enter Your Name.`);
 //set Data
 let currentIndex =0;
 let rightAnswer   =0;
@@ -81,6 +81,7 @@ function getQuestions(){
                 console.log(`finish Quiz`)
             }
             showResult(QCount);
+            
                                    }
              
                               
@@ -118,7 +119,7 @@ quizArea.appendChild(questionTitle)
 
 for(var i =1; i<=4; i++){
     let mainDiv = document.createElement("div");
-    mainDiv.className="answer";
+    mainDiv.className="answer wow fadeInDown";
     let radioInput  = document.createElement('input');
     radioInput.name = "question";
     radioInput.type = "radio";
@@ -168,13 +169,13 @@ function showResult(count3){
         bullets.remove();
         submitButton.remove();
         if(rightAnswer > count3/2 && rightAnswer  < count3){
-            theResults =`<span class="good">Good</span>, ${rightAnswer} from ${count3} IS Good ${Student} `
+            theResults =`<span class="good  wow fadeInLeft ">Good</span>,You solve ${rightAnswer} from ${count3} Q  Good ${Student} `
         }
         else if(rightAnswer === count3){
-            theResults =`<span class="perfect">Perfect</span>, All Answer IS Good ${Student} `
+            theResults =`<span class="perfect  wow fadeInLeft ">Perfect</span>, All Answer IS Good ${Student} `
         }
         else{
-            theResults =   `<span class="bad">Bad</span>, ${rightAnswer} from ${count3} IS bad User Please agin `
+            theResults =   `<span class="bad  wow fadeInLeft">Bad</span>,You solve ${rightAnswer} from ${count3} Q bad ${Student} Please agin `
         }
         result.innerHTML=theResults;
 }

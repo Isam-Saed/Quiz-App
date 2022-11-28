@@ -23,6 +23,7 @@ body{
     align-items: stretch;
 }
 .quiz-app .quiz-info{
+   
   display: flex;
   position: relative;
   margin: 10px auto;
