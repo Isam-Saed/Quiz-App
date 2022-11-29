@@ -53,11 +53,12 @@ let answerArea= document.querySelector('.answer-area')
 let bullets = document.querySelector('.bullets');
 let submitButton = document.querySelector('.btn');
 let result = document.querySelector('.result');
+let countDown = document.querySelector('.countDown');
 let Student = prompt(`Welcome in Quiz App .. Please Enter Your Name.`);
 //set Data
 let currentIndex =0;
 let rightAnswer   =0;
-
+let countDownInterval;
 function getQuestions(){
     let myRequest = new XMLHttpRequest();
     myRequest.onreadystatechange= function(){
@@ -66,8 +67,9 @@ function getQuestions(){
           let QCount = questionObject.length;
           createBullets(QCount)
           addQuestionsData(questionObject[currentIndex],QCount)
+          countDownfun(11,QCount);
+          
           submitButton.onclick=()=>{
-            if(currentIndex < QCount){ 
             let theRightAnswer = questionObject[currentIndex].right_answer;
             currentIndex++;
             checkAnswer(theRightAnswer,QCount);
@@ -76,17 +78,17 @@ function getQuestions(){
             answerArea.innerHTML ='';
             addQuestionsData(questionObject[currentIndex],QCount);
             
-            handelBullet();}
-            else{
-                console.log(`finish Quiz`)
-            }
+            handelBullet();
+            
+            clearInterval(countDownInterval);
+            countDownfun(11,QCount)
             showResult(QCount);
             
-                                   }
+                                    };
              
                               
         }
-    }
+    }  
     myRequest.open("GET","htmlQ.json",true)
     myRequest.send();
                        }
@@ -111,8 +113,10 @@ function createBullets(num){
 
 
 function addQuestionsData(obj,countQ){
+    
     if(currentIndex < countQ){ 
 let questionTitle = document.createElement('h2')
+questionTitle.className='wow slideInLeft'
 let questionTExt = document.createTextNode(obj["title"]);
 questionTitle.appendChild(questionTExt)
 quizArea.appendChild(questionTitle)
@@ -180,4 +184,20 @@ function showResult(count3){
         result.innerHTML=theResults;
 }
 
+}
+function countDownfun(duration,count4){
+if(currentIndex < count4){
+    let minutes,secunds;
+    countDownInterval = setInterval(function(){
+        minutes =parseInt(duration /60);
+        secunds =parseInt(duration %60);
+ minutes =minutes<10?`0${minutes}`: minutes;
+ secunds =secunds<10?`0${secunds}`: secunds;
+        countDown.innerHTML=`${minutes}:${secunds}`
+        if(--duration <0){
+            clearInterval(countDownInterval);
+            submitButton.click();
+        }
+    },1000)
+}
 }
