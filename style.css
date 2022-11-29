@@ -13,7 +13,6 @@ body{
 .quiz-app{
     display: flex;
     margin: 20px auto;
-    width:100%;
     color: antiquewhite;
     padding: 15px;
     background-color: #e3e7eb;
@@ -26,8 +25,8 @@ body{
    
   display: flex;
   position: relative;
-  margin: 10px auto;
   justify-content: space-around;
+  margin: 10px auto;
   background-color: #f8f8f8;
   height: 50px;
   color:#1a6d81 ;
@@ -35,11 +34,11 @@ body{
   font-size: 20px;
   font-weight: bold;
   border-radius: 10px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .quiz-app .quiz-info .category{
-flex: 1;margin-right: 100px;
+flex: 1;
 
 }
 .quiz-app .quiz-info .count{
@@ -47,19 +46,18 @@ flex: 1;margin-right: 100px;
 }
 .quiz-app .quiz-area{
     background-color: #f8f8f8;
+
     margin: 10px auto;
-    height: 35px;
+    height: 80px;
     color:#1a6d81 ;
     padding: 5px;
     text-align: left;
     width: 100%;
 }
-#quiz-area {
-    height: 50px;
 
-}
 .quiz-area h2{
     margin-left: 60px;
+    font-size: 37px;
 }
 .quiz-app .answer-area{
 padding: 20px;
@@ -67,6 +65,7 @@ margin: 5px auto;
 background-color: #f8f8f8;
 color:#1a6d81 ;
 font-weight: bold;
+font-size: 20px;
 }
 .quiz-app .answer-area .answer{
     margin-left: 36px;
