@@ -116,7 +116,7 @@ function addQuestionsData(obj,countQ){
     
     if(currentIndex < countQ){ 
 let questionTitle = document.createElement('h2')
-questionTitle.className='wow slideInLeft'
+questionTitle.className='wow slideInRight'
 let questionTExt = document.createTextNode(obj["title"]);
 questionTitle.appendChild(questionTExt)
 quizArea.appendChild(questionTitle)
