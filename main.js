@@ -67,7 +67,7 @@ function getQuestions(){
           let QCount = questionObject.length;
           createBullets(QCount)
           addQuestionsData(questionObject[currentIndex],QCount)
-          countDownfun(11,QCount);
+          countDownfun(15,QCount);
           
           submitButton.onclick=()=>{
             let theRightAnswer = questionObject[currentIndex].right_answer;
@@ -81,7 +81,7 @@ function getQuestions(){
             handelBullet();
             
             clearInterval(countDownInterval);
-            countDownfun(11,QCount)
+            countDownfun(15,QCount)
             showResult(QCount);
             
                                     };
