@@ -10,7 +10,7 @@ padding:0;
 }
     .card{
         padding-top: 20px;
-        background-color: #03131a;
+        background-color: #0b3b50;
         border-radius: 5px;
         border: none;
         height: 100vh;
@@ -188,7 +188,7 @@ margin-top: 3px;
 text-align: right;
     }
     @media (max-width:500px){
-        .card{height: 108vh;
+        .card{height: 112vh;
         padding-top: 0;}
         .quiz-area{
             margin: 10px auto;
