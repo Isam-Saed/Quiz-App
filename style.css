@@ -188,7 +188,7 @@ margin-top: 3px;
 text-align: right;
     }
     @media (max-width:500px){
-        .card{height: 112vh;
+        .card{height: 120vh;
         padding-top: 0;}
         .quiz-area{
             margin: 10px auto;
